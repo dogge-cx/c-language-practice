@@ -1,0 +1,10 @@
+# Dev-C++ / 编译器临时文件
+*.bak
+*.o
+*.obj
+*.exe
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store
