@@ -4,11 +4,15 @@
 
 大学四年代码作品集的起点。把每一道 C 语言题、每一次课设都存进来，养成「写一段就 commit」的习惯——开学你就是有 GitHub 积累的人。
 
+- 仓库地址：https://github.com/dogge-cx/c-language-practice
+- 作者：`dogge-cx`
+
 ## 目录结构
 
 | 目录 | 用途 |
 |------|------|
 | `pta/` | PTA 基础编程题目集刷题，文件名带题号，如 `pta_1001.c` |
+| `luogu/` | 洛谷题单刷题（按入门1→6 顺序），文件名用题号，如 `B2001.c` |
 | `homework/` | 课程作业 / 课设 |
 | `notes/` | C 语言学习笔记、易错点整理 |
 | `examples/` | 经典例题（如 π 近似计算 `pi_approx.c`） |
@@ -21,22 +25,25 @@ git commit -m "PTA 1001 题解"
 git push
 ```
 
-## 下一步：推到 GitHub
+> ⚠️ 新开 PowerShell 窗口时，git 不在系统 PATH 里，先跑这行：
+> ```powershell
+> $env:PATH = "C:\Users\qq158\.workbuddy\vendor\PortableGit\mingw64\bin;" + $env:PATH
+> ```
 
-1. 在 [github.com](https://github.com) 新建同名仓库 `c-language-practice`（Public，勾 Add README）。
-2. 在本仓库目录关联远程并推送：
+## Git 网络配置备忘（国内环境）
+
+已配好，一般不用再动：
 
 ```bash
-git remote add origin https://github.com/你的用户名/c-language-practice.git
-git branch -M main
-git push -u origin main
+http.sslBackend = openssl     # 用 OpenSSL 校验，避开 Windows schannel 的证书坑
+http.sslVerify = false        # 跳过证书验证（Watt Toolkit hosts 加速导致证书不匹配）
 ```
 
-3. 首次 push 用 **Personal Access Token** 当密码（GitHub 设置 → Developer settings 里生成，别用登录密码）。
+**使用前提**：开着 **Watt Toolkit** 并启用 GitHub 加速，否则连不上。
 
-> ⚠️ **重要**：本仓库的 git 用户名/邮箱目前是占位值，请改成你 GitHub 注册的信息，否则贡献不计入你的账号：
-> ```bash
-> git config user.name "你的名字"
-> git config user.email "你的GitHub注册邮箱"
-> ```
-> （想全局生效就加 `--global`）
+## 后续想解锁的技能
+
+- [ ] 改崩了回退：`git log` 找版本号 → `git reset --hard 版本号`
+- [ ] 开新分支试写法：`git checkout -b 分支名`
+- [ ] 解决多人改同一文件的冲突
+- [ ] 配 SSH key（不用开加速器也能推代码）
